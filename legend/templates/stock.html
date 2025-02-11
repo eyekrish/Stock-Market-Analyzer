@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Stock Market Data</title>
+    <style>
+        /* Add your CSS styles here */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        table, th, td {
+            border: 1px solid black;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        a {
+            color: #007bff;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Stock Market Data</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>LTP</th>
+                <th>Change</th>
+                <th>High</th>
+                <th>Low</th>
+                <th>Open</th>
+                <th>Qty.</th>  <!-- This is the column heading for the Qty -->
+            </tr>
+        </thead>
+        <tbody>
+            {% for stock in new %}
+            <tr>
+                <td><a href="https://merolagani.com/CompanyDetail.aspx?symbol={{ stock.Symbol }}" target="_blank">{{ stock.Name }}</a></td>
+                <td>{{ stock.LTP }}</td>
+                <td>{{ stock.Change }}</td>
+                <td>{{ stock.High }}</td>
+                <td>{{ stock.Low }}</td>
+                <td>{{ stock.Open }}</td>
+                <td>{{ stock.Qty }}</td>  <!-- Use stock.Qty after the key has been modified in the view -->
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+</body>
+</html>
